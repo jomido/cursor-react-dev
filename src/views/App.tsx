@@ -1,6 +1,27 @@
-import { Hello } from '../components/Hello/Hello';
-import './App.scss';
+import { trpc } from '../utils/trpc';
+import { useState } from 'react';
 
-export const App = () => {
-  return <Hello greeting="Allo, World!" />;
-};
+function App() {
+  const [number, setNumber] = useState(15);
+  const collatzQuery = trpc.collatz.useQuery(number, {
+    enabled: false, // Don't run automatically
+  });
+
+  const handleClick = () => {
+    collatzQuery.refetch().then((result) => {
+      if (result.data) {
+        setNumber(result.data);
+      }
+    });
+  };
+
+  return (
+    <div>
+      <button onClick={handleClick}>
+        {number}
+      </button>
+    </div>
+  );
+}
+
+export { App };
