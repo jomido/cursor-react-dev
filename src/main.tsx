@@ -16,7 +16,9 @@ const queryClient = new QueryClient();
 const trpcClient = trpc.createClient({
   links: [
     httpBatchLink({
-      url: 'http://localhost:4000/api',
+      url: process.env.NODE_ENV === 'production' 
+        ? '/api' 
+        : 'http://localhost:4000/api',
     }),
   ],
 });
