@@ -38,11 +38,5 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Expose ports for both frontend and backend
 EXPOSE 80 4000
 
-# Create a startup script in /usr/local/bin
-RUN echo '#!/bin/sh\n\
-npm run server & \
-nginx -g "daemon off;"\n' > /usr/local/bin/start.sh && \
-chmod +x /usr/local/bin/start.sh
-
-# Start both services
-CMD ["/usr/local/bin/start.sh"]
+# Start both services directly
+CMD sh -c "npm run server & nginx -g 'daemon off;'"
