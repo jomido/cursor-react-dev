@@ -1,4 +1,5 @@
 import { initTRPC } from '@trpc/server';
+import { TRPCError } from '@trpc/server';
 import { z } from 'zod';
 
 const t = initTRPC.create();
@@ -11,7 +12,10 @@ export const appRouter = router({
     .input(z.number())
     .query(({ input }) => {
       if (input < 2) {
-        throw new Error('Input must be 2 or greater');
+        throw new TRPCError({
+          code: 'UNPROCESSABLE_CONTENT',
+          message: 'Input must be 2 or greater',
+        });
       }
       
       return input % 2 === 0 
