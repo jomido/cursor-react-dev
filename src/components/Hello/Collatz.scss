@@ -8,6 +8,15 @@
   height: 100%;
   width: 100%;
 
+  &.done {
+    background-color: var(--color-bg-light);
+
+    &> button, &>h2 {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+
   h2 {
     margin: 0;
   }
@@ -30,21 +39,5 @@
     &:active {
       transform: translateY(1px);
     }
-  }
-
-  &.animate {
-    animation: boop 0.2s ease;
-  }
-}
-
-@keyframes boop {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
   }
 }

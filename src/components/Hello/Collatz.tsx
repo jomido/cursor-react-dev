@@ -1,4 +1,3 @@
-import { useState } from 'react'
 
 import './Collatz.scss'
 
@@ -10,18 +9,11 @@ interface Props {
 }
 
 export const Collatz = ({ greeting, num = 2, onClick }: Props) => {
-  const [isAnimating, setIsAnimating] = useState(false)
-
-  const handleClick = () => {
-    setIsAnimating(true)
-    setTimeout(() => setIsAnimating(false), 1000)
-    onClick?.()
-  }
-
+  
   return (
-    <div className={`collatz-container ${isAnimating ? 'animate' : ''}`}>
+    <div className={`collatz-container ${num === 1 ? 'done' : ''}`}>
       <h2>{greeting}</h2>
-      <button onClick={handleClick}>Collatz {num}</button>
+      <button onClick={() => onClick?.()}>Collatz {num}</button>
     </div>
   )
 }
