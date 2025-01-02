@@ -6,11 +6,13 @@ import { trpc } from '../utils/trpc'
 import './CollatzApp.scss'
 
 function App() {
-  const [num, setNumber] = useState(() => {
+  const [initialNum] = useState(() => {
     const params = new URLSearchParams(window.location.search)
     const nParam = params.get('n')
     return nParam ? parseInt(nParam, 10) : 15
   })
+
+  const [num, setNumber] = useState(initialNum)
 
   const [clickCount, setClickCount] = useState(0)
   const [numHistory, setNumHistory] = useState<number[]>([])
@@ -46,6 +48,9 @@ function App() {
       <Collatz num={num} greeting="Collatz" onClick={handleClick} />
       <div className="click-counter">
         {clickCount}
+      </div>
+      <div className="initial-number">
+        initial: {initialNum}
       </div>
     </div>
   )

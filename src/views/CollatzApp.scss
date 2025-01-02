@@ -8,10 +8,8 @@
   width: 100%;
 }
 
-.click-counter {
+.click-counter, .initial-number {
   position: absolute;
-  bottom: 1rem;
-  left: 1rem;
   font-size: 1rem;
   color: var(--color-bg);
   background-color: var(--color-fg);
@@ -22,6 +20,19 @@
   align-items: center;
   justify-content: center;
 
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
+}
+
+.click-counter {
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.initial-number {
+  bottom: 1rem;
+  left: 1rem;
+  width: unset;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
