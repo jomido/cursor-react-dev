@@ -1,6 +1,9 @@
-import { trpc } from '../utils/trpc';
 import { useState } from 'react';
+
 import { Collatz } from '../components/Hello/Collatz';
+import { trpc } from '../utils/trpc';
+
+import './CollatzApp.scss';
 
 function App() {
   const [num, setNumber] = useState(15);
@@ -18,7 +21,9 @@ function App() {
   };
 
   return (
-    <Collatz num={num} greeting="Collatz" onClick={handleClick} />
+    <div className='collatz-app'>
+      <Collatz num={num} greeting="Collatz" onClick={handleClick} />
+    </div>
   );
 }
 
