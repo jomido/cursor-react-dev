@@ -4,12 +4,12 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
+    "dev:backend": "tsx src/server/index.ts",
+    "dev:frontend": "vite",
+    "dev:full": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "server": "tsx src/server/index.ts",
-    "dev:full": "concurrently \"npm run dev\" \"npm run server\"",
     "test": "vitest"
   },
   "dependencies": {
