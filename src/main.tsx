@@ -1,31 +1,32 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { App } from './views/CollatzApp';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { httpBatchLink } from '@trpc/client';
-import { trpc } from './utils/trpc';
+import React from 'react'
+import { createRoot } from 'react-dom/client'
+import { App } from './views/CollatzApp'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { httpBatchLink } from '@trpc/client'
+import { trpc } from './utils/trpc'
 
-import './main.scss'; 
+import './main.scss'
 
-const container = document.getElementById('root');
+const container = document.getElementById('root')
 
 if (!container) {
-  throw new Error('Root element not found');
+  throw new Error('Root element not found')
 }
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient()
 
 const trpcClient = trpc.createClient({
   links: [
     httpBatchLink({
-      url: process.env.NODE_ENV === 'production' 
-        ? '/api' 
-        : 'http://localhost:4000/api',
+      url:
+        process.env.NODE_ENV === 'production'
+          ? '/api'
+          : 'http://localhost:4000/api',
     }),
   ],
-});
+})
 
-const root = createRoot(container);
+const root = createRoot(container)
 
 root.render(
   <React.StrictMode>
@@ -35,4 +36,4 @@ root.render(
       </QueryClientProvider>
     </trpc.Provider>
   </React.StrictMode>
-);
+)

@@ -1,16 +1,18 @@
 :root {
   --color-bg: #112;
-  --color-fg:cyan;
+  --color-fg: cyan;
   --color-fg-light: #44ffff;
 }
 
-html, body, #root {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    padding: 0;
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
 
-    background: var(--color-bg);
-    color: var(--color-fg);
-    font-family: 'Courier New', Courier, monospace;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: 'Courier New', Courier, monospace;
 }
