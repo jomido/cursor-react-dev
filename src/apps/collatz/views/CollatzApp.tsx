@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 
 import { Collatz } from '../components/Collatz/Collatz'
-import { trpc } from '../utils/trpc'
+import { trpc } from '../../../utils/trpc'
 
 import './CollatzApp.scss'
 
-function App() {
+function CollatzApp() {
   const [initialNum] = useState(() => {
     const params = new URLSearchParams(window.location.search)
     const nParam = params.get('n')
@@ -56,4 +56,4 @@ function App() {
   )
 }
 
-export { App }
+export { CollatzApp }
