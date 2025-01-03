@@ -11,16 +11,16 @@
 .click-counter, .initial-number {
   position: absolute;
   font-size: 1rem;
-  color: var(--color-bg);
-  background-color: var(--color-fg);
+  color: var(--color-fg);
+  background-color: var(--color-bg);
   font-weight: bold;
-  border-radius: 4px;
+  border: 1px solid var(--color-fg);
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 3rem;
+  width: 4rem;
   height: 3rem;
 }
 
@@ -30,7 +30,7 @@
 }
 
 .initial-number {
-  bottom: 1rem;
+  top: 1rem;
   left: 1rem;
   width: unset;
   padding-left: 0.5rem;
