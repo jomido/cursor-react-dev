@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import { Collatz } from '../components/Collatz/Collatz'
-import { trpc } from '../../../utils/trpc'
+import { trpc } from '@/utils/trpc'
 
 import './CollatzApp.scss'
 

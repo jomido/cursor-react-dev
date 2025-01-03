@@ -9,3 +9,4 @@ Ideally, development is dockerized as well.
 
 - `./build.sh`
 - `./run.sh`
+- `./stop.sh`
