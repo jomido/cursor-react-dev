@@ -20,7 +20,7 @@ function CollatzApp() {
   useEffect(() => {
     // Initialize history with starting number
     setNumHistory([num])
-  }, []) // Empty dependency array - runs once on mount
+  }, [num]) // Empty dependency array - runs once on mount
 
   useEffect(() => {
     // Update URL when num changes
@@ -37,8 +37,8 @@ function CollatzApp() {
     collatzQuery.refetch().then((result) => {
       if (result.data) {
         setNumber(result.data)
-        setClickCount(prev => prev + 1)
-        setNumHistory(prev => [...prev, result.data])
+        setClickCount((prev) => prev + 1)
+        setNumHistory((prev) => [...prev, result.data])
       }
     })
   }
@@ -46,12 +46,8 @@ function CollatzApp() {
   return (
     <div className="collatz-app">
       <Collatz num={num} greeting="Collatz" onClick={handleClick} />
-      <div className="click-counter">
-        {clickCount}
-      </div>
-      <div className="initial-number">
-        initial: {initialNum}
-      </div>
+      <div className="click-counter">{clickCount}</div>
+      <div className="initial-number">initial: {initialNum}</div>
     </div>
   )
 }

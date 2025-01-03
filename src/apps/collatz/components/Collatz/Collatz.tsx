@@ -1,4 +1,3 @@
-
 import './Collatz.scss'
 
 interface Props {
@@ -9,7 +8,6 @@ interface Props {
 }
 
 export const Collatz = ({ greeting, num = 2, onClick }: Props) => {
-  
   return (
     <div className={`collatz-container ${num === 1 ? 'done' : ''}`}>
       <h2>{greeting}</h2>
